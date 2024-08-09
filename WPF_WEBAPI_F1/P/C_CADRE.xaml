@@ -1,0 +1,63 @@
+﻿<Window x:Class="WPF_WEBAPI_F1.C_CADRE"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_WEBAPI_F1" xmlns:c="clr-namespace:WPF_WEBAPI_F1.C" d:DataContext="{d:DesignInstance Type=c:C_COORDINATION}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="LST_Constructeur" 
+            SelectedItem="{Binding Select_Constructeur}"
+            ItemsSource="{Binding List_Constructeur}"
+            d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,532,10" SelectionChanged="LST_Constructeur_SelectionChanged" MouseDoubleClick="LST_Constructeur_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Nom}" Margin="25"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="MI_Supprimer" Header="Supprimer" Click="MI_Supprimer_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+        <ListBox x:Name="LST_Driver" 
+            SelectedItem="{Binding Select_Driver }"
+            ItemsSource="{Binding List_Driver}"
+            d:ItemsSource="{d:SampleData ItemCount=5}" Margin="273,10,281,10" SelectionChanged="LST_Driver_SelectionChanged" MouseDoubleClick="LST_Driver_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Nom}" Margin="25"/>
+                        <TextBlock Text="{Binding Prenom}" Margin="25"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="MI_Supprimer_2" Header="Supprimer" Click="MI_Supprimer_2_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+        <GroupBox Header="GroupBox" Margin="519,0,10,264">
+            <Canvas>
+                <Label Content="Nom :" Canvas.Left="28" Canvas.Top="27" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Label Content="Prenom :" Canvas.Left="28" Canvas.Top="61"/>
+                <Button x:Name="BTN_Ajoute" Content="Ajouter" Canvas.Left="85" Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Click="BTN_Ajoute_Click"/>
+                <TextBox Canvas.Left="85" TextWrapping="Wrap" Text="{Binding Nouveau_Nom}" Canvas.Top="31" Width="120"/>
+                <TextBox Canvas.Left="85" TextWrapping="Wrap" Text="{Binding Nouveau_Prenom}" Canvas.Top="69" Width="120"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="GroupBox" Margin="519,145,10,163">
+            <Canvas>
+                <Label Content="Nom :" Canvas.Left="28" Canvas.Top="27" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Button x:Name="BTN_Ajouter_Constructeur" Content="Ajouter" Canvas.Left="85" Canvas.Top="54" HorizontalAlignment="Center" VerticalAlignment="Top" Width="89" Click="BTN_Ajouter_Constructeur_Click"/>
+                <TextBox Canvas.Left="85" TextWrapping="Wrap" Text="{Binding Nouveau_Constructeur}" Canvas.Top="31" Width="120"/>
+            </Canvas>
+        </GroupBox>
+
+    </Grid>
+</Window>

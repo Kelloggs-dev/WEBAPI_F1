@@ -1,0 +1,17 @@
+@URL = https://localhost:7209
+
+###
+
+GET {{URL}}/GetDate
+
+###
+
+GET {{URL}}/GetIp
+
+###
+
+GET {{URL}}/GetInfoOS
+
+###
+
+GET {{URL}}/GetDriver ? P_Id_Constructeur=3
